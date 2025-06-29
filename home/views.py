@@ -8,7 +8,7 @@ class ContactUsView(CreateView):
     model = ContactUs
     fields = '__all__'
     template_name = 'home/index.html'
-    success_url = reverse_lazy('home:contact-us')
+    success_url = reverse_lazy('home:home')
     def form_valid(self, form):
         form_data = form.cleaned_data
         ContactUs.objects.create(**form_data)

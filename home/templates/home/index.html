@@ -39,6 +39,7 @@
             <a class="get-started" href="{% url 'account:logout' %}">Logout</a>
         {% else %}
             <a class="get-started" href="{% url 'account:login' %}">Login</a>
+            <a class="get-started" href="{% url 'account:register' %}">Register</a>
         {% endif %}
         <img src="{% static 'images/icon/menu.png' %}" class="menu" onclick="sideMenu(0)" alt="menu">
     </nav>

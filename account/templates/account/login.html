@@ -55,11 +55,12 @@
 			</div>
 
 			<!-- Registration Form -->
-			<form id="register" class="input-group">
-				<input type="text" class="input-field" placeholder="Full Name" required="required">
-				<input type="email" class="input-field" placeholder="Email Address" required="required">
-				<input type="password" class="input-field" placeholder="Create Password" name="psame" required="required">
-				<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
+			<form id="register" method="post" class="input-group">
+                {% csrf_token %}
+				<input type="text" name="username" class="input-field" placeholder="Full Name" required="required">
+				<input type="email" name="email" class="input-field" placeholder="Email Address" required="required">
+				<input type="password" n class="input-field" placeholder="Create Password" name="password1" required="required">
+				<input type="password" class="input-field" placeholder="Confirm Password" name="password2" required="required">
 				<input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
 				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
 			</form>

@@ -235,90 +235,36 @@
             About Us?</p></center>
     </div>
     <div class="rev-container">
-        <div class="rev-card">
-            <div class="identity">
-                <img src="{% static 'images/creator/humanNotExist1.jpg' %}">
-                <p>Sophie Daniel</p>
-                <h6>Java</h6>
-                <div class="rating"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"></div>
+        {% for about in data %}
+            <div class="rev-card">
+                <div class="identity">
+                    <img src="{{ about.image.url }}" alt="عکس {{ about.username }}">
+                    <p>{{ about.username }}</p>
+                    <h6>{{ about.skill }}</h6>
+                    <div class="rating">
+                        <img src="{% static 'images/icon/star.png' %}" alt="#">
+                        <img src="{% static 'images/icon/star.png' %}" alt="#">
+                        <img src="{% static 'images/icon/star.png' %}" alt="#">
+                        <img src="{% static 'images/icon/star.png' %}" alt="#">
+                        <img src="{% static 'images/icon/star.png' %}" alt="#">
+                    </div>
+                </div>
+                <div class="rev-cont">
+                    <p id="title">نظرات:</p>
+                    <p id="content">{{ about.body }}</p>
+                </div>
             </div>
-            <div class="rev-cont">
-                <p id="title">Review:</p>
-                <p id="content">
-                    I did Java Fundamenetal course with Rishab Sir. It was a great experience. The brain teasers and
-                    assignments, actually the whole lot of content was really good. Some problems were challenging yet
-                    interesting. Was explained very well where ever I stuck...
-                </p>
-            </div>
-        </div>
-        <div class="rev-card">
-            <div class="identity">
-                <img src="{% static 'images/creator/humanNotExist2.jpg' %}">
-                <p>Clayton Clair</p>
-                <h6>C/C++</h6>
-                <div class="rating"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"></div>
-            </div>
-            <div class="rev-cont">
-                <p id="title">Review:</p>
-                <p id="content">
-                    When I was watching "Dear Zindagi", I could relate Sharukh Khan to Arnav Bhaiya. The way Sharukh
-                    Khan was giving life lessons to Alia Bhatt, in the same way Arnav Bhaiya will give coding life
-                    lessons which will guide you throughout your code life...
-                </p>
-            </div>
-        </div>
-        <div class="rev-card">
-            <div class="identity">
-                <img src="{% static 'images/creator/humanNotExist3.jpg' %}">
-                <p>Devyn Sethi</p>
-                <h6>JEE</h6>
-                <div class="rating"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"></div>
-            </div>
-            <div class="rev-cont">
-                <p id="title">Review:</p>
-                <p id="content">
-                    LearnEd was an amazing experience for me. I belong to electronics department and had a little
-                    experience in coding but I think it has helped me think things through in a much more analytical
-                    manner. Coding is important no matter which branch you are in. It gives you a better understanding
-                    about how to approach a problem...
-                </p>
-            </div>
-        </div>
-        <div class="rev-card">
-            <div class="identity">
-                <img src="{% static 'images/creator/humanNotExist4.jpg' %}">
-                <p>Rylee Phillips</p>
-                <h6>Python</h6>
-                <div class="rating"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"><img
-                        src="{% static 'images/icon/star.png' %}"><img src="{% static 'images/icon/star.png' %}"></div>
-            </div>
-            <div class="rev-cont">
-                <p id="title">Review:</p>
-                <p id="content">
-                    This was my first complete course at coding blocks. I attended the Python course in Winter 2020 and
-                    loved it which made me join the full course. Shubham bhaiya and Ayush Bhaiya(TA) have good knowledge
-                    about the field and were very helpful in making us understand the concepts. I would certainly
-                    recommend this to anyone...
-                </p>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-</div>
 
+</div>
 <!-- CONTACT US -->
 <div class="diffSection" id="contactus_section">
     <center><p style="font-size: 50px; padding: 100px">Contact Us</p></center>
     <div class="csec"></div>
     <div class="back-contact">
         <div class="cc">
-            <form action="" method="post">
+            <form action="http://localhost:8080/contact" method="post" >
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit" id="csubmit">Send Message</button>
@@ -354,7 +300,8 @@
 <marquee style="background: linear-gradient(to right, #FA4B37, #DF2771); margin-top: 50px;" direction="left"
          onmouseover="this.stop()" onmouseout="this.start()" scrollamount="20">
     <div class="marqu">“Education is the passport to the future, for tomorrow belongs to those who prepare for it
-        today.” “Your attitude, not your aptitude, will determine your altitude.” “If you think education is expensive,
+        today.” “Your attitude, not your aptitude, will determine your altitude.” “If you think education is
+        expensive,
         try ignorance.” “The only person who is educated is the one who has learned how to learn …and change.”
     </div>
 </marquee>

@@ -264,7 +264,7 @@
     <div class="csec"></div>
     <div class="back-contact">
         <div class="cc">
-            <form action="http://localhost:8080/contact" method="post" >
+            <form action="http://localhost:8080/contact" method="post">
                 {% csrf_token %}
                 {{ form }}
                 <button type="submit" id="csubmit">Send Message</button>
@@ -275,26 +275,26 @@
 
 
 <!-- FEEDBACK -->
-<div class="title2" id="feedBACK">
-    <span>Give Feedback</span>
-    <div class="shortdesc2">
-        <p>Please share your valuable feedback to us</p>
+{% if request.user.is_authenticated %}
+    <div class="title2" id="feedBACK">
+        <span>Give Feedback</span>
+        <div class="shortdesc2">
+            <p>Please share your valuable feedback to us</p>
+        </div>
     </div>
-</div>
 
-<div class="feedbox">
-    <div class="feed">
-        <form action="mailto:roshank9419@gmail.com" method="post" enctype="text/plain">
-            <label>Your Name</label><br>
-            <input type="text" name="" class="fname" required="required"><br>
-            <label>Email</label><br>
-            <input type="email" name="mail" required="required"><br>
-            <label>Additional Details</label><br>
-            <textarea name="addtional"></textarea><br>
-            <button type="submit" id="csubmit">Send Message</button>
-        </form>
+    <div class="feedbox">
+        <div class="feed">
+            <form action='' method="post">
+                {% csrf_token %}
+                 {{ form }}
+                <button type="submit" id="csubmit">Send Message</button>
+            </form>
+        </div>
     </div>
-</div>
+{% else %}
+    <a href="login/">Please share your valuable feedback to us</a>
+{% endif %}
 
 <!-- Sliding Information -->
 <marquee style="background: linear-gradient(to right, #FA4B37, #DF2771); margin-top: 50px;" direction="left"
